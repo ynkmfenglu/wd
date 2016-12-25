@@ -1,0 +1,95 @@
+/*分页样式*/
+.app-pagination{
+	height: 28px;
+	line-height: 28px;
+}
+.app-pagination .app-pagination-icon{
+	margin-top: -5px;
+}
+.app-pagination ul{
+	margin: 5px 6px 0;
+}
+.app-pagination .app-dl{
+	margin-top: -2px;
+}
+.app-pagination ul li{
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	float: left;
+	border-radius: 2px;
+}
+.app-pagination ul li:not(:first-child){
+	margin-left: 5px;
+}
+.app-pagination ul li a,.app-pagination ul li span{
+	display: block;
+	width: 18px;
+	height: 18px;
+	padding: 0;
+	vertical-align: middle;
+}
+.app-pagination ul li a{
+	background: #eee;
+	color: #333;
+	border-radius: 2px;
+}
+.app-pagination ul li a:hover{
+	background: #2c91ba;
+	color: #fff;
+	text-decoration: none;
+}
+.app-pagination .app-button{
+	margin-top: -2px;
+}
+/*当前选中*/
+.app-pagination .active{
+	color: #fff;
+	background: #2c91ba;
+}
+/*转到按钮样式*/
+.app-pagination .app-pagination-button{
+	background: #2c91ba;
+    color: #fff;
+    height: 26px;
+    line-height: 26px;
+    display: inline-block;
+    width: 58px;
+    text-align: center;
+    border-radius: 2px;
+    margin-left: 6px;
+}
+.app-pagination .app-pagination-button:hover{
+	background: #18759b;
+	text-decoration: none;
+}
+/*第一页和最后一页*/
+.app-pagination ul li i{
+	vertical-align: top !important;
+}
+.app-pagination .app-pagination-start{
+    background-position: -151px 0px;
+}
+.app-pagination .app-pagination-end{
+    background-position: -233px 0px;
+}
+.app-pagination ul li a i.app-pagination-start:hover{
+    background-position: -151px -30px;
+}
+.app-pagination ul li a i.app-pagination-end:hover{
+    background-position: -233px -30px;
+}
+/*上一页和下一页*/
+.app-pagination .app-pagination-last-page{
+    background-position: -179px 0px;
+}
+.app-pagination .app-pagination-next-page{
+    background-position: -205px 0px;
+}
+.app-pagination ul li a i.app-pagination-last-page:hover{
+    background-position: -179px -30px;
+}
+.app-pagination ul li a i.app-pagination-next-page:hover{
+    background-position: -205px -30px;
+}

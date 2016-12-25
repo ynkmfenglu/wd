@@ -1,0 +1,28 @@
+/*按钮样式*/
+.app-button{
+	margin-left: 6px;
+}
+.app-button .app-button-style{
+	min-width: 68px;
+	min-height: 28px;
+	height: 28px;
+	line-height: 27px;
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 4px;
+	text-shadow: 0 1px 0 #fff;
+	overflow: hidden;
+	margin-right: 4px;
+}
+/*按钮重置样式*/
+.app-button .app-button-style-reset{
+	min-width: 80px;
+	border-radius: 2px;
+}
+/*按钮特殊样式*/
+.app-button .app-button-block{
+	display: block;
+    margin: 10px 16px 0 11px;
+}
+.app-button .app-button-block:first-child{
+	margin-top: 17px;
+}

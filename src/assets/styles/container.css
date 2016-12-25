@@ -1,0 +1,261 @@
+/*内容容器部分*/
+.app-container{
+    padding: 12px 12px 12px 216px;
+    margin-bottom: 15px;
+    min-height: 528px;
+}
+.app-container h5{
+	color: #666;
+}
+.app-container .app-content-title{
+	height: 36px;
+	line-height: 36px;
+	color: #3c3d42;
+	padding-left: 6px;
+}
+.app-container .app-content-title .app-container-h6-btn{
+	min-width: 80px;
+	min-height: 28px;
+	height: 28px;
+	line-height: 27px;
+	border: 1px solid rgba(0,0,0,.2);
+	text-shadow:0 1px 0 #fff;
+	overflow: hidden;
+	margin: -2px 4px 0 4px;
+}
+.app-container .app-content-title>a{
+	display: inline-block;
+	min-width: 48px;
+}
+.app-container .app-content-title .app-container-icon{
+	margin-top: -3px;
+}
+.app-container .app-container-tit-select{
+	position: relative;
+	width: 90px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background: #fff;
+	margin-top: -1px;
+}
+.app-container .app-container-tit-select span{
+	display: block;
+	width: 66px;
+	height: 28px;
+	line-height: 27px;
+	overflow: hidden;
+	word-break: break-all;
+}
+.app-container .app-container-tit-select i{
+	position: absolute;
+	top: 13px;
+	right: 7px;
+	width: 8px;
+	height: 8px;
+	background-position: -158px -64px;
+}
+.app-container .app-container-bg-wihte{
+	border: 1px solid #e1e1e1;
+	background: #fff;
+	padding: 8px;
+}
+.app-container .app-container-more{
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px;
+}
+/*重置边距*/
+.app-container-margin-left-4{
+	margin-left: 4px !important;
+}
+/*小图标*/
+.app-container-icon{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(../images/icon-group.png) no-repeat;
+	vertical-align: middle;
+}
+/*蓝色书里面是问号的图标*/
+.app-container-tit-icon{
+	background-position: 2px 2px;
+}
+/*蓝色书里面是问号的图标:hover*/
+.app-container-tit-icon:hover{
+	background-position: -24px 2px;
+}
+/*笔图标*/
+.app-icon-edit{
+	background-position: 0 -119px;
+}
+.app-icon-edit:hover{
+	background-position: 0 -152px;
+}
+.app-icon-edit-disabled{
+	background-position: 0 -185px;
+}
+/*类似卡车的图标*/
+.app-icon-car{
+	background-position: -38px -119px;
+}
+.app-icon-car:hover{
+	background-position: -38px -152px;
+}
+.app-icon-car-disabled{
+	background-position: -38px -185px;
+}
+/*删除图标*/
+.app-icon-del{
+	background-position: -74px -119px;
+}
+.app-icon-del:hover{
+	background-position: -74px -152px;
+}
+.app-icon-del-disabled{
+	background-position: -74px -185px;
+}
+/*笔记里加号图标*/
+.app-icon-note-plus{
+	background-position: -109px -119px;
+}
+.app-icon-note-plus:hover{
+	background-position: -109px -152px;
+}
+.app-icon-note-plus-disabled{
+	background-position: -109px -185px;
+}
+/*笔记里闪电图标*/
+.app-icon-note-bolt{
+	background-position: -139px -119px;
+}
+.app-icon-note-bolt:hover{
+	background-position: -139px -152px;
+}
+.app-icon-note-bolt-disabled{
+	background-position: -139px -185px;
+}
+/*笔记里有箭头图标*/
+.app-icon-arrow{
+	background-position: -163px -119px;
+}
+.app-icon-arrow:hover{
+	background-position: -163px -152px;
+}
+.app-icon-arrow-disabled{
+	background-position: -163px -185px;
+}
+/*上下箭头图标*/
+.app-icon-tb-arrow{
+	background-position: -187px -119px;
+}
+.app-icon-tb-arrow:hover{
+	background-position: -187px -152px;
+}
+.app-icon-tb-arrow-disabled{
+	background-position: -187px -185px;
+}
+/*类似关闭图标*/
+.app-icon-close{
+	background-position: -217px -119px;
+}
+.app-icon-close:hover{
+	background-position: -217px -150px;
+}
+.app-icon-close-disabled{
+	background-position: -217px -184px;
+}
+/*里面是i的图标*/
+.app-icon-i{
+	background-position: -249px -119px;
+}
+.app-icon-i:hover{
+	background-position: -249px -150px;
+}
+.app-icon-i-disabled{
+	background-position: -249px -184px;
+}
+/*类似返回图标*/
+.app-icon-back{
+	background-position: -275px -118px;
+}
+.app-icon-back:hover{
+	background-position: -275px -150px;
+}
+.app-icon-back-disabled{
+	background-position: -275px -184px;
+}
+/*下载图标*/
+.app-icon-download{
+	background-position: -311px -119px;
+}
+.app-icon-download:hover{
+	background-position: -311px -150px;
+}
+.app-icon-download-disabled{
+	background-position: -311px -184px;
+}
+/*下箭头图标*/
+.app-icon-down-arrow{
+	background-position: -342px -119px;
+}
+.app-icon-down-arrow:hover{
+	background-position: -342px -150px;
+}
+.app-icon-down-arrow-disabled{
+	background-position: -342px -184px;
+}
+/*上箭头图标*/
+.app-icon-up-arrow{
+	background-position: -364px -119px;
+}
+.app-icon-up-arrow:hover{
+	background-position: -364px -150px;
+}
+.app-icon-up-arrow-disabled{
+	background-position: -364px -184px;
+}
+/*加号图标*/
+.app-icon-plus{
+	background-position: -389px -120px;
+}
+.app-icon-plus:hover{
+	background-position: -389px -149px;
+}
+.app-icon-plus-disabled{
+	background-position: -389px -182px;
+}
+/*对号图标*/
+.app-icon-right{
+	background-position: -415px -120px;
+}
+.app-icon-right:hover{
+	background-position: -415px -149px;
+}
+.app-icon-right-disabled{
+	background-position: -415px -182px;
+}
+/*乘号图标*/
+.app-icon-ride{
+	background-position: -441px -120px;
+}
+.app-icon-ride:hover{
+	background-position: -441px -149px;
+}
+.app-icon-ride-disabled{
+	background-position: -441px -182px;
+}
+/*屏幕高度*/
+@media screen and (min-height: 690px) and (max-height:768px) {
+    .app-container {
+        min-height: 546px;
+    }
+}
+@media screen and (min-height: 768px) {
+    .app-container {
+        min-height: 645px;
+    }
+}

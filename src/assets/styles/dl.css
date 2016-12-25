@@ -1,0 +1,197 @@
+/*列表部分*/
+.app-dl table td.app-dl-td{
+	background: #fff;
+	border: 1px solid #e1e1e1;
+	padding: 8px;	
+}
+.app-dl table td.app-dl-td-border{
+	border-left: 3px solid #dbc454;
+}
+.app-dl table td.app-dl-td:first-child{
+	width: 15%;
+	color: #7d7d7d;
+	background: #eee;
+}
+.app-dl table td.app-dl-td:not(:first-child){
+	color: #2c3254;
+}
+.app-dl table .app-dl-form span{
+	height: 22px;
+	line-height: 22px;
+	margin-right: 20px;
+}
+.app-dl table .app-dl-form-wrap span{
+	display: block;
+	margin-right: 12px;
+}
+.app-dl table label{
+	margin-left: 2px;
+}
+.app-dl .app-dl-form-time{
+	padding: 2px 0;
+}
+.app-dl .app-dl-form-time span{
+	height: 26px;
+	line-height: 26px;
+	margin-right: 8px;
+}
+.app-dl .app-dl-form-time span:not(:first-child){
+	padding-left: 8px;
+}
+.app-dl .app-dl-form-time div,.app-dl .app-dl-input{
+	margin: 0;
+}
+.app-dl .app-dl-form-time div input.app-dl-input-w56{
+	width: 56px;
+	height: 26px;
+	border-radius: 5px;
+}
+.app-dl .app-dl-form-time-special{
+	padding-bottom: 12px;
+	border-bottom: 1px dashed #ccc;
+}
+.app-dl .app-dl-input input{
+	height: 26px;
+	border-radius: 5px;
+}
+.app-dl .app-dl-input span{
+	vertical-align: middle;
+}
+.app-dl .app-dl-input input.app-dl-input-w248{
+	width: 248px;
+}
+.app-dl .app-dl-input input.app-dl-input-w66{
+	width: 66px;
+}
+.app-dl .app-dl-input input.app-dl-input-w36{
+	width: 36px;
+}
+.app-dl .app-dl-checkbox{
+	width: 46px;
+	padding: 1px 0 0 16px;
+}
+/*特定td背景颜色*/
+.app-dl .app-dl-td-bg{
+	background: #eee;
+}
+/*时间单位*/
+.app-dl .app-dl-form-unit{
+	display: inline-block;
+	width: 56px;
+	margin: 0 !important;
+}
+/*选择表单*/
+.app-dl .app-dl-select{
+	width: 145px;
+	height: 26px;
+	min-height: 26px;
+	line-height: 26px;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.app-dl .app-dl-select span{
+	display: block;
+	width: 107px;
+	overflow: hidden;
+	word-break: break-all;
+	margin-top: -1px;
+}
+.app-dl .app-dl-select i{
+	position: absolute;
+	top: 9px;
+	right: 10px;
+	width: 8px;
+	height: 8px;
+	background-position: -158px -64px;
+}
+.app-dl .app-dl-select-w56{
+	width: 56px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 5px;
+}
+.app-dl .app-dl-select-w56 span{
+	width: 38px;
+}
+.app-dl .app-dl-select-w56 i{
+	right: 7px;
+}
+/*多选表单*/
+.app-dl .app-dl-select-more{
+	min-width: 126px;
+	height: 98px !important;
+}
+.app-dl .app-dl-select-more-184{
+	min-width: 184px;
+	height: 98px !important;
+}
+.app-dl .app-dl-select-more-255{
+	min-width: 255px;
+	height: 98px !important;
+}
+.app-dl .app-dl-selet-wrap-span{
+	display: inline-block;
+	min-width: 60px;
+	vertical-align: middle;
+}
+.app-dl .app-dl-choice-140{
+	margin-left: 140px;
+}
+.app-dl .app-dl-choice-175{
+	margin-left: 175px;
+}
+.app-dl .app-dl-choice-200{
+	margin-left: 200px;
+}
+/*单选按钮*/
+.app-dl .app-dl-radio label{
+	padding-right: 12px;
+}
+/*表单组内*/
+.app-dl .app-dl-td-form-wrap{
+	margin-bottom: 7px;
+}
+.app-dl .app-dl-form-inpu-wrap span{
+	width: 48px;
+	margin: 0 !important; 
+}
+.app-dl .app-dl-form-inpu-wrap .app-dl-select{
+	width: 104px;
+}
+.app-dl .app-dl-form-inpu-wrap .app-dl-select span{
+	width: 64px;
+}
+.app-dl .app-dl-td-tip{
+	margin: 0 0 6px 6px;
+}
+.app-dl .app-dl-td-tip span{
+	display: block;
+	color: #f71d1c;
+}
+/*图标定位*/
+/*黄色三角形，大图标宽高*/
+.app-dl .app-dl-big-tip-icon{
+	display: block;
+	width: 46px;
+	height: 42px;
+	margin: 6px auto 0;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #b5b5b5;
+}
+/*黄色三角形，问号大图标*/
+.app-dl .app-dl-icon-question-mark{
+	background-position: -356px -6px;
+}
+/*黄色三角形，叹号大图标*/
+.app-dl .app-dl-icon-exclamation-mark{
+	background-position: -297px -6px;
+}
+/*黄色三角形，叹号小图标*/
+.app-dl .app-dl-tip-icon{
+	background-position: -56px -3px;
+}
+/*蓝色方块的小图标*/
+.app-dl .app-dl-inspect{
+	background-position: 4px -58px;
+}

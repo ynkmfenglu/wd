@@ -1,0 +1,119 @@
+/*下一步样式*/
+.app-step ul.app-step-tit-wrap li{
+	background: #fff;
+}
+.app-step ul.app-step-tit-wrap li:last-child{
+	background: none;
+}
+.app-step ul.app-step-tit-wrap li span{
+	color: #3b5286;
+	display: block;
+	background: #e0e3e8;
+	text-decoration: none;
+	position: relative;
+	height: 34px;
+	line-height: 34px;
+	padding: 0 11px 0 12px;
+	text-align: center;
+	margin-right: 23px;
+}
+.app-step ul.app-step-tit-wrap li span.active{
+	background: #79889d;
+	color: #fff;
+}
+.app-step ul.app-step-tit-wrap li span.active:before{
+	content: '';
+    position: absolute;
+    top: 0;
+    border: 0 solid #79889d;
+    border-width: 17px 14px;
+    width: 0;
+    height: 0;
+    left: -20px;
+    border-left-color: transparent
+}
+.app-step ul.app-step-tit-wrap li span.active:after{
+	border-left-color: #79889d;
+} 
+.app-step ul.app-step-tit-wrap li span:before,.app-step ul.app-step-tit-wrap li span:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	border: 0 solid #e0e3e8;
+	border-width: 17px 14px;
+	width: 0;
+	height: 0;
+}
+.app-step ul.app-step-tit-wrap li span:before{
+	left: -20px;
+	border-left-color: transparent;
+}
+.app-step ul.app-step-tit-wrap li span:after{
+	left: 100%;
+	border-color: transparent;
+	border-left-color: #e0e3e8;
+}
+.app-step ul.app-step-tit-wrap li:first-child,.app-step ul.app-step-tit-wrap li:first-child span{
+	border-radius: 4px 0 0 4px;
+}
+.app-step ul.app-step-tit-wrap li:first-child span:before{
+	border: none;
+}
+/*中间fieldset内容部分*/
+.app-step .app-step-fieldset{
+	border: 1px solid #b5b5b5;
+	margin-right: 15%;
+	padding: 8px 12px;
+}
+.app-step .app-step-fieldset legend{
+	padding: 0 5px;
+	color: #414a6f;
+}
+.app-step .app-step-fieldset legend span{
+	color: #666;
+}
+.app-step .app-step-tr>td:first-child{
+	background: #fff !important;
+}
+/*td弹出框*/
+.app-step .app-step-td-bomb-box{
+	position: absolute;
+	top: -6px;
+	left: 198px;
+	width: 332px;
+	min-height: 118px;
+	background: #fff;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	box-shadow: 0 1px 6px rgba(0,0,0,.2);
+	z-index: 999;
+}
+.app-step .app-step-td-bomb-box:after{
+	position: absolute;
+	content: '';
+	width: 16px;
+	height: 26px;
+	background: url(../images/arrow.png) no-repeat;
+	top: 12px;
+	left: -16px;
+}
+/*弹出框内table*/
+.app-step .app-step-td-bomb-box td:first-child{
+	width: 35%
+}
+.app-step .app-step-td-bomb-box td{
+	background: #fff;
+	border: 1px solid #e1e1e1;
+	padding: 4px 8px; 
+}
+/*说明部分*/
+.app-step .app-step-explain{
+	background: #fff;
+    border: 1px solid #ddd;
+    padding: 12px 22px;
+}
+.app-step .app-step-explain p{
+	color: #666;
+	line-height: 32px;
+}
