@@ -39,14 +39,14 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/images/[name].[ext]?[hash]'
+          name: 'assets/images/[name].[ext]' // ?[hash]
         }
       },
       {
         test: /\.(otf|ttf|woff|woff2)$/,
         loader: 'file-loader',
         options: {
-          name: 'assets/fonts/[name].[ext]?[hash]'
+          name: 'assets/fonts/[name].[ext]' // ?[hash]
         }
       }
     ]

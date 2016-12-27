@@ -4,2349 +4,46 @@
 
 <template>
     <!--侧边栏部分-->
-    <div class="app-sidebar">
+    <div class="app-sidebar" v-on:click="activeMenu" v-bind:aaaaaaaa="root.active">
         <ul>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon"></i>
-                    系统信息
+            <!-- 一级菜单 -->
+            <li class="app-sidebar-list" v-for="(item1, index) in root.children" v-bind:key="item1.id">
+                <a class="app-sidebar-a" href="javascript:;"
+                    v-bind:class="item1.active ? 'active' : ''"
+                    v-bind:data-menu-id="item1.id"
+                    v-bind:data-menu-parentId="item1.parentId">
+                    <i class="app-sidebar-icon" v-bind:class="'app-sidebar-icon'+(index+1)"></i>
+                    {{ item1.name }}
                 </a>
-                <!--一级菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu" style="display:none">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">概况</a>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            状态
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
+                <ul class="uk-clearfix app-sidebar-submenu" v-show="item1.expand">
+                    <!-- 二级菜单 -->
+                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1"
+                        v-for="(item2, index) in item1.children" v-bind:key="item2.id">
+                        <a href="javascript:;"
+                           v-bind:class="item2.active ? 'active' : ''"
+                           v-bind:data-menu-id="item2.id">
+                            {{ item2.name }}
+                            <i v-if="item2.children" class="app-container-icon app-sidebar-icon-arrow"></i>
                         </a>
-                        <!--二级菜单-->
-                        <ul class="app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            统计信息
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            会话监控
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon2"></i>
-                    模版和对象
-                </a>
-                <!--一级菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu" style="display:none">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">
-                            对象管理
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="app-sidebar-plus" href="#">
-                            路由策略
-                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                        </a>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="app-sidebar-plus" href="#">
-                            会话保持
-                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                        </a>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            健康检查
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    健康检查2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            健康检查3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            健康检查3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    健康检查2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    健康检查2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="app-sidebar-plus" href="#">
-                            tRules
-                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon3"></i>
-                    服务器负载
-                </a>
-                <!--一级菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu" style="display:none">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">
-                            虚拟服务
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            服务池
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            服务池节点
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            模板
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            应用加速
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            SSL证书
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon4"></i>
-                    链路负责
-                </a>
-                <!--二级菜单-->
-                <ul class=" app-sidebar-submenu-2" style="display:none">
-                    <!--每个二级子菜单-->
-                    <li class="uk-position-relative app-sidebar-hover-2">
-                        <a href="#">
-                            二级菜单2
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--三级菜单-->
-                        <ul class=" app-sidebar-submenu-3">
-                            <!--每个三级子菜单-->
-                            <li class="uk-position-relative">
-                                <a class="app-sidebar-plus" href="#">
-                                    三级菜单3
-                                    <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                </a>
-                            </li>
-                            <!--每个三级子菜单-->
-                            <li class="uk-position-relative">
-                                <a class="app-sidebar-plus" href="#">
-                                    三级菜单3
-                                    <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个二级子菜单-->
-                    <li class="uk-position-relative app-sidebar-hover-2">
-                        <a href="#">
-                            二级菜单2
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--三级菜单-->
-                        <ul class=" app-sidebar-submenu-3">
-                            <!--每个三级子菜单-->
-                            <li class="uk-position-relative">
-                                <a class="app-sidebar-plus" href="#">
-                                    三级菜单3
-                                    <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                </a>
-                            </li>
-                            <!--每个三级子菜单-->
-                            <li class="uk-position-relative">
-                                <a class="app-sidebar-plus" href="#">
-                                    三级菜单3
-                                    <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个二级子菜单-->
-                    <li class="uk-position-relative app-sidebar-hover-2">
-                        <a href="#">
-                            二级菜单2
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--三级菜单-->
-                        <ul class=" app-sidebar-submenu-3">
-                            <!--每个三级子菜单-->
-                            <li class="uk-position-relative">
-                                <a class="app-sidebar-plus" href="#">
-                                    三级菜单3
-                                    <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                </a>
-                            </li>
-                            <!--每个三级子菜单-->
-                            <li class="uk-position-relative">
-                                <a class="app-sidebar-plus" href="#">
-                                    三级菜单3
-                                    <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon5"></i>
-                    智能DNS
-                </a>
-                <!--一级子菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu" style="display:none">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">
-                            DNS服务器
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    DNS服务器2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            DNS服务器3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            DNS服务器3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    DNS服务器2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            DNS服务器3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            DNS服务器3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    DNS服务器2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            DNS服务器3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            DNS服务器3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            本地负载
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            全局负载
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            公共对象
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    公共对象2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            公共对象3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            公共对象3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    公共对象2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    公共对象2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon6"></i>
-                    网络配置
-                </a>
-                <!--一级子菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu" style="display:none">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            接口
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    接口2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            接口3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            接口3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    接口2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            接口3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            接口3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    接口2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            接口3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            接口3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            路由
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            ARP
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            NAT
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    NAT2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            NAT3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            NAT3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    NAT2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    NAT2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            协议管理
-                        </a>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">
-                            网络测试
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon7"></i>
-                    安全功能
-                </a>
-                <!--一级子菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu" style="display:none">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">
-                            防火墙
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    防火墙2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            防火墙3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            防火墙3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    防火墙2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            防火墙3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            防火墙3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    防火墙2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            防火墙3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            防火墙3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            防攻击
-                        </a>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            HTTP防护
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    HTTP防护2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            HTTP防护3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            HTTP防护3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    HTTP防护2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    HTTP防护2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon8"></i>
-                    系统管理
-                </a>
-                <!--一级子菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu" style="display:none">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">
-                            配置
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    配置2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    配置2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    配置2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            管理员
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            版本管理
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    版本管理2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            版本管理3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            版本管理3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    版本管理2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    版本管理2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            许可管理
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            高可靠性
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    二级菜单2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <!--每个三级子菜单-->
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            三级菜单3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="app-sidebar-plus" href="#">
-                            VRRP
-                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                        </a>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            SNMP
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!--每个条目-->
-            <li class="app-sidebar-list">
-                <a class="app-sidebar-a active" href="#">
-                    <i class="app-sidebar-icon app-sidebar-icon9"></i>
-                    报表功能
-                </a>
-                <!--一级子菜单-->
-                <ul class="uk-clearfix app-sidebar-submenu">
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a class="active" href="#">
-                            我的配置
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    我的配置2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            我的配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            我的配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    我的配置2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            我的配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            我的配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    我的配置2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            我的配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            我的配置3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
+                        <ul v-if="item2.children" class="app-sidebar-submenu-2">
+                            <!-- 三级菜单 -->
+                            <li class="uk-position-relative app-sidebar-hover-2"
+                                v-for="(item3, index) in item2.children" v-bind:key="item3.id">
+                                <a href="javascript:;"
+                                   v-bind:class="item3.active ? 'active' : ''"
+                                   v-bind:data-menu-id="item3.id">
+                                    {{ item3.name }}
+                                    <i v-if="item3.children" class="app-container-icon app-sidebar-icon-arrow"></i>
+                                </a>
+                                <ul v-if="item3.children" class=" app-sidebar-submenu-3">
+                                    <!-- 四级菜单 -->
+                                    <li class="uk-position-relative"
+                                        v-for="(item4, index) in item3.children">
+                                        <a class="app-sidebar-plus" href="javascript:;">
+                                            {{ item4.name }}
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--每个一级子菜单-->
-                    <li class="uk-float-right uk-position-relative app-sidebar-hover-1">
-                        <a href="#">
-                            报表查看
-                            <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                        </a>
-                        <!--二级菜单-->
-                        <ul class=" app-sidebar-submenu-2">
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative app-sidebar-hover-2">
-                                <a href="#">
-                                    报表查看2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                                <!--三级菜单-->
-                                <ul class=" app-sidebar-submenu-3">
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            报表查看3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                    <li class="uk-position-relative">
-                                        <a class="app-sidebar-plus" href="#">
-                                            报表查看3
-                                            <i class="app-container-icon app-sidebar-icon-plus"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    报表查看2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
-                            </li>
-                            <!--每个二级子菜单-->
-                            <li class="uk-position-relative">
-                                <a href="#">
-                                    报表查看2
-                                    <i class="app-container-icon app-sidebar-icon-arrow"></i>
-                                </a>
                             </li>
                         </ul>
                     </li>
@@ -2358,10 +55,528 @@
 
 <script>
 
+    let root = {
+        active: true,
+        expand: true,
+        children: [
+            {
+                name: '系统信息',
+                expand: true,
+                active: true,
+                children:[
+                    {
+                        name: '概况',
+                        active: true
+                    }, {
+                        name: '状态',
+                        children:[
+                            {
+                                name: '虚拟服务状态',
+                            }, {
+                                name: '虚拟链路状态',
+                            }, {
+                                name: '全局负载均衡状态',
+                            }, {
+                                name: '接口状态',
+                            }
+                        ]
+                    }, {
+                        name: '统计信息',
+                        children:[
+                            {
+                                name: '虚拟服务统计',
+                            }, {
+                                name: '虚拟链路统计',
+                            }, {
+                                name: 'DNS统计',
+                            }, {
+                                name: '系统统计',
+                            }, {
+                                name: '缓存统计',
+                            }, {
+                                name: '压缩统计',
+                            }
+                        ]
+                    }, {
+                        name: '会话监控',
+                        children:[
+                            {
+                                name: '会话统计',
+                            }, {
+                                name: '标准会话',
+                            }, {
+                                name: '代理会话',
+                            }, {
+                                name: '流量统计',
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                name: '模板和对象',
+                expand: false,
+                children: [
+                    {
+                        name: '对象管理',
+                        children:[
+                            {
+                                name: '时间对象',
+                            }, {
+                                name: '服务对象',
+                            }, {
+                                name: '地址对象',
+                            }, {
+                                name: '应用对象',
+                            }, {
+                                name: 'ISP地址库'
+                            }
+                        ]
+                    }, {
+                        name: '路由策略'
+                    }, {
+                        name: '会话保持'
+                    }, {
+                        name: '健康检查',
+                        children:[
+                            {
+                                name: '健康检查列表',
+                            }, {
+                                name: '默认健康检查'
+                            }
+                        ]
+                    }, {
+                        name: 'tRules'
+                    }
+                ],
+            }, {
+                name: '服务器负载',
+                expand: false,
+                children: [
+                    {
+                        name: '虚拟服务',
+                        children: [
+                            {
+                                name: '虚拟服务',
+                            }, {
+                                name: '虚拟地址',
+                            }, {
+                                name: '状态',
+                            }
+                        ]
+                    }, {
+                        name: '服务池',
+                        children: [
+                            {
+                                name: '服务池',
+                            }, {
+                                name: '状态',
+                            }
+                        ]
+                    }, {
+                        name: '服务器节点',
+                        children: [
+                            {
+                                name: '服务器节点',
+                            }, {
+                                name: '状态',
+                            }
+                        ]
+                    }, {
+                        name: '模板',
+                        children: [
+                            {
+                                name: '服务',
+                            }, {
+                                name: '协议',
+                            }, {
+                                name: '内容交换'
+                            }
+                        ]
+                    }, {
+                        name: '应用加速',
+                        children: [
+                            {
+                                name: 'TCP连接复用',
+                            }, {
+                                name: 'SSL',
+                            }, {
+                                name: 'HTTP压缩'
+                            }, {
+                                name: 'WEB缓存',
+                            }, {
+                                name: '智能终端加速',
+                            }, {
+                                name: 'SSL证书'
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                name: '链路负载',
+                expand: false,
+                children: [
+                    {
+                        name: '虚拟链路'
+                    }, {
+                        name: '链路池'
+                    }, {
+                        name: '链路节点'
+                    }, {
+                        name: 'DNS代理'
+                    }, {
+                        name: '动态就近性'
+                    }
+                ]
+            }, {
+                name: '智能DNS',
+                expand: false,
+                children: [
+                    {
+                        name: 'DNS服务器',
+                        children: [
+                            {
+                                name: '基础配置'
+                            }, {
+                                name: 'DNS转发'
+                            }, {
+                                name: 'DNS Zones'
+                            }, {
+                                name: '静态就近性策略'
+                            }
+                        ]
+                    }, {
+                        name: '本地负载',
+                        children: [
+                            {
+                                name: '域名映射'
+                            }, {
+                                name: '静态就近性策略'
+                            }
+                        ]
+                    }, {
+                        name: '全局负载',
+                        children: [
+                            {
+                                name: '数据中心'
+                            }, {
+                                name: 'DNS地址池'
+                            }, {
+                                name: '域名映射'
+                            }, {
+                                name: '静态就近性策略'
+                            }
+                        ]
+                    }, {
+                        name: '公共对象',
+                        children: [
+                            {
+                                name: '用户区域'
+                            }, {
+                                name: '入站链路'
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                name: '网络配置',
+                expand: false,
+                children: [
+                    {
+                        name: '接口',
+                        children: [
+                            {
+                                name: '物理接口列表'
+                            }, {
+                                name: 'VLAN列表'
+                            }, {
+                                name: '链路聚合列表'
+                            }, {
+                                name: 'Loopback接口'
+                            }, {
+                                name: 'IPv4'
+                            }
+                        ]
+                    }, {
+                        name: '路由',
+                        children: [
+                            {
+                                name: '静态路由'
+                            }, {
+                                name: '动态路由'
+                            }, {
+                                name: '路由表'
+                            }, {
+                                name: 'IPv6前缀公告'
+                            }
+                        ]
+                    }, {
+                        name: 'ARP',
+                        children: [
+                            {
+                                name: '静态ARP'
+                            }
+                        ]
+                    }, {
+                        name: 'NAT',
+                        children: [
+                            {
+                                name: 'NAT规则'
+                            }, {
+                                name: 'NAT地址池'
+                            }, {
+                                name: '端口管理'
+                            }
+                        ]
+                    }, {
+                        name: '协议管理'
+                    }, {
+                        name: '网络调试',
+                        children: [
+                            {
+                                name: 'Web调试'
+                            }, {
+                                name: '路由跟踪'
+                            }, {
+                                name: 'DNS探测'
+                            }, {
+                                name: '链路探测'
+                            }, {
+                                name: '自定义抓包'
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                name: '安全功能',
+                expand: false,
+                children: [
+                    {
+                        name: '防火墙',
+                        children: [
+                            {
+                                name: '安全策略'
+                            }, {
+                                name: '安全防护表'
+                            }, {
+                                name: '策略配置'
+                            }
+                        ]
+                    }, {
+                        name: '防攻击'
+                    }, {
+                        name: 'HTTP防护',
+                        children: [
+                            {
+                                name: 'HTTP防护表'
+                            }, {
+                                name: 'HTTP防护规则'
+                            }, {
+                                name: 'HTTP浪涌保护'
+                            }, {
+                                name: 'HTTP连接确认'
+                            }, {
+                                name: '配置'
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                name: '系统管理',
+                expand: false,
+                children: [
+                    {
+                        name: '配置',
+                        children: [
+                            {
+                                name: '设置'
+                            }, {
+                                name: '系统监控'
+                            }, {
+                                name: '时间配置'
+                            } , {
+                                name: 'DNS'
+                            }, {
+                                name: '备份恢复'
+                            } , {
+                                name: '告警邮件配置'
+                            }, {
+                                name: '问题反馈'
+                            }, {
+                                name: '设备重启'
+                            }
+                        ]
+                    }, {
+                        name: '管理员',
+                        children: [
+                            {
+                                name: '管理员'
+                            }, {
+                                name: '管理员权限表'
+                            }, {
+                                name: '认证服务器'
+                            }, {
+                                name: '在线信息'
+                            }
+                        ]
+                    }, {
+                        name: '版本管理',
+                        children: [
+                            {
+                                name: '固件版本'
+                            }, {
+                                name: '特征库版本'
+                            }
+                        ]
+                    }, {
+                        name: '许可管理'
+                    }, {
+                        name: '高可靠性',
+                        children: [
+                            {
+                                name: '配置'
+                            }, {
+                                name: '配置同步'
+                            }, {
+                                name: '连接同步'
+                            }, {
+                                name: '故障检测'
+                            }, {
+                                name: '监控'
+                            }
+                        ]
+                    }, {
+                        name: 'VRRP'
+                    }, {
+                        name: 'SNMP'
+                    }, {
+                        name: '日志管理',
+                        children: [
+                            {
+                                name: '系统事件'
+                            }, {
+                                name: '负载均衡'
+                            }, {
+                                name: '应用加速'
+                            }, {
+                                name: '安全'
+                            }, {
+                                name: '选项'
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                name: '报表功能',
+                expand: false,
+                children: [
+                    {
+                        name: '报表配置',
+                        children: [
+                            {
+                                name: '手动任务'
+                            }, {
+                                name: '自动任务'
+                            }, {
+                                name: '模板'
+                            }, {
+                                name: '定制'
+                            }
+                        ]
+                    }, {
+                        name: '报表查看',
+                        children: [
+                            {
+                                name: '手动报表'
+                            }, {
+                                name: '自动报表'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+    };
+
+    eachNode(root, 0, -1);
+    // 初始化赋初值
+    function eachNode(node, id, parentId) {
+        if (!node.id) {
+            node.id = id + '';
+            node.parentId = parentId
+            node.active = !!node.active
+        }
+        if (node.children && node.children.length > 0) {
+            node.children.forEach(function(v, i){
+                // 递归
+                eachNode(v, id + '_' + i, id + '');
+            });
+        }
+    }
+
+    // 设置选中
+    function setActive(node, arr) {
+        if (arr.indexOf(node.id) !== -1) {
+            node.active = true;
+        } else {
+            node.active = false;
+        }
+        if (node.children && node.children.length > 0) {
+            node.children.forEach(function(v, i) {
+                // 递归
+                setActive(v, arr);
+            });
+        }
+    }
+
+    // 设置展开收起
+    function toggleMenu(node, id) {
+        node.children.forEach(function(v, i) {
+            if (v.id === id) {
+                v.expand = !v.expand;
+            } else {
+                v.expand = false;
+            }
+        });
+    }
+
+    // 获取id数组
+    function getIds(id) {
+        var arr = [id];
+        function cutId(id) {
+            var idx = id.lastIndexOf('_');
+            if (idx !== -1) {
+                var subId = id.substr(0, idx);
+                arr.unshift(subId);
+                cutId(subId);
+            }
+        }
+        cutId(id);
+        return arr;
+    }
+
+    // !!! data作用域很麻烦啊, 容易绑定不上 computed补充了字段后就无法使用了
+
     export default {
         name: 'app-sidebar',
         data: function() {
-            return {}
+            return {
+                root: root
+            }
         },
+        methods: {
+            activeMenu: function(event) {
+                var target = event.target,
+                    id = target.getAttribute('data-menu-id'),
+                    parentId = target.getAttribute('data-menu-parentId');
+                // 展开收起二级菜单
+                if (parentId == 0) {
+                    toggleMenu(this.root, id);
+                }
+                // 设置选中
+                else if (id) {
+                    setActive(this.root, getIds(id));
+                }
+            }
+        }
     }
 </script>

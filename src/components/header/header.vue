@@ -59,7 +59,7 @@
             <!--右侧菜单部分-->
             <ul class="uk-float-right app-header-navbar">
                 <li class="uk-float-left uk-position-relative">
-                    <a class="uk-text-center app-main-border-box app-header-navbar-a active" href="">
+                    <a class="uk-text-center app-main-border-box app-header-navbar-a" href="">
                         <i class="app-header-icon"></i>
                         向导
                     </a>
