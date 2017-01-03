@@ -50,12 +50,20 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
+const router = new VueRouter({
+  routes: [
+    { path: '/', component: resolve => System.import('./components/content/systeminfo/overview/overview.vue') },
+    { path: '/overview', component: resolve => System.import('./components/content/systeminfo/overview/overview.vue') },
+    { path: '/state', component: resolve => System.import('./components/content/systeminfo/state/state.vue') }
+  ]
+})
+
 Vue.use(VueRouter)
 
-new Vue({
+window.vue = new Vue({
   el: '#app',
+  router:router,
   render: h => h(App)
 });
-
 
 

@@ -4,7 +4,8 @@
     <!--主体部分-->
     <div class="uk-clearfix uk-position-relative">
       <app-sidebar></app-sidebar>
-      <app-content></app-content>
+      <!--<app-content></app-content>-->
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -12,16 +13,15 @@
 <script>
   import appHeader from './components/header/header.vue'
   import appSidebar from './components/sidebar/sidebar.vue'
-  import appContent from './components/content/content.vue'
+//  import appContent from './components/content/content.vue'
 
   export default {
     name: 'app',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App'
       }
     },
-    components: {appHeader, appSidebar, appContent}
+    components: {appHeader, appSidebar} // appContent
   }
 </script>
 

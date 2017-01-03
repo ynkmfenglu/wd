@@ -4,11 +4,11 @@
 
 <template>
     <!--侧边栏部分-->
-    <div class="app-sidebar" v-on:click="activeMenu" v-bind:aaaaaaaa="root.active">
+    <div class="app-sidebar" v-on:click="activeMenu">
         <ul>
             <!-- 一级菜单 -->
             <li class="app-sidebar-list" v-for="(item1, index) in root.children" v-bind:key="item1.id">
-                <a class="app-sidebar-a" href="javascript:;"
+                <a class="app-sidebar-a"
                     v-bind:class="item1.active ? 'active' : ''"
                     v-bind:data-menu-id="item1.id"
                     v-bind:data-menu-parentId="item1.parentId">
@@ -19,9 +19,9 @@
                     <!-- 二级菜单 -->
                     <li class="uk-float-right uk-position-relative app-sidebar-hover-1"
                         v-for="(item2, index) in item1.children" v-bind:key="item2.id">
-                        <a href="javascript:;"
-                           v-bind:class="item2.active ? 'active' : ''"
-                           v-bind:data-menu-id="item2.id">
+                        <a  v-bind:class="item2.active ? 'active' : ''"
+                            v-bind:data-menu-id="item2.id"
+                            v-bind:data-menu-path="item2.path">
                             {{ item2.name }}
                             <i v-if="item2.children" class="app-container-icon app-sidebar-icon-arrow"></i>
                         </a>
@@ -31,7 +31,8 @@
                                 v-for="(item3, index) in item2.children" v-bind:key="item3.id">
                                 <a href="javascript:;"
                                    v-bind:class="item3.active ? 'active' : ''"
-                                   v-bind:data-menu-id="item3.id">
+                                   v-bind:data-menu-id="item3.id"
+                                   v-bind:data-menu-path="item3.path">
                                     {{ item3.name }}
                                     <i v-if="item3.children" class="app-container-icon app-sidebar-icon-arrow"></i>
                                 </a>
@@ -66,12 +67,15 @@
                 children:[
                     {
                         name: '概况',
-                        active: true
+                        active: true,
+                        path: '/overview'
                     }, {
                         name: '状态',
+                        path: '/state',
                         children:[
                             {
                                 name: '虚拟服务状态',
+                                path: '/state'
                             }, {
                                 name: '虚拟链路状态',
                             }, {
@@ -566,6 +570,7 @@
         methods: {
             activeMenu: function(event) {
                 var target = event.target,
+                    path = target.getAttribute('data-menu-path'),
                     id = target.getAttribute('data-menu-id'),
                     parentId = target.getAttribute('data-menu-parentId');
                 // 展开收起二级菜单
@@ -575,6 +580,8 @@
                 // 设置选中
                 else if (id) {
                     setActive(this.root, getIds(id));
+                    // 切换路由
+                    path && this.$router.push(path);
                 }
             }
         }
