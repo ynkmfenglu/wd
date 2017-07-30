@@ -1,0 +1,74 @@
+/*tab标签样式*/
+.app-tab ul li.app-breadcrumb-list{
+	height: 32px;
+	line-height: 32px;
+	border-bottom: 1px solid #434343;
+	border-right: 1px solid #434343;
+	background: #676765;
+	background: -webkit-linear-gradient(#7e7e7b, #676765,#646668); 
+    background: -o-linear-gradient(#7e7e7b, #676765,#646668); 
+    background: -moz-linear-gradient(#7e7e7b, #676765,#646668); 
+    background: linear-gradient(#7e7e7b, #676765,#646668); 
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#7b7b7a, endColorstr=#646667);/*IE<9>*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#7b7b7a, endColorstr=#646667)";/*IE8+*/
+}
+.app-tab ul li.app-breadcrumb-list:first-child{
+	border-left: 1px solid #434343;
+}
+.app-tab ul li.app-breadcrumb-list a{
+	display: block;
+	min-width: 66px;
+	text-align: center;
+	color: #fff;
+	padding:0 8px; 
+}
+.app-tab ul li.app-breadcrumb-list a:hover{
+	text-decoration: none;
+}
+.app-tab ul li.app-breadcrumb-list a i{
+	width: 8px;
+	height: 8px;
+	background-position: -140px -65px;
+	-webkit-transform: translate(4px,0);
+	-moz-transform: translate(4px,0);
+	-ms-transform: translate(4px,0);
+	-o-transform: translate(4px,0);    
+	transform: translate(4px,0);
+}
+.app-tab ul li.app-breadcrumb-list>a:hover:after,.app-tab ul li.app-breadcrumb-list a.active:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	width: 100%;
+	height: 3px;
+	background: #dbc454;
+}
+/*下拉菜单*/
+.app-tab ul.app-tab-submenu{
+	position: absolute;
+	top: 33px;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	box-shadow: 0 1px 6px rgba(0,0,0,.2);
+	z-index: 2;
+	overflow: hidden;
+}
+.app-tab ul.app-tab-submenu li a{
+	height: 36px;
+	line-height: 36px;
+	color: #5b5b5b;
+	border-left: 4px solid #dcdcdc;
+}
+.app-tab ul.app-tab-submenu li a:hover{
+	background: #96a3b3;
+	color: #fff;
+	border-left: 4px solid #6a7587;
+}
+.app-tab ul.app-tab-submenu li a.active{
+	border-left: 4px solid #dbc454;
+}
+.app-tab ul.app-tab-submenu li a.active:after{
+	background: none;
+}

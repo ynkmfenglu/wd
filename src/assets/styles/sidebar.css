@@ -1,0 +1,143 @@
+/*侧边栏部分*/
+.app-sidebar{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 204px;
+	background: #dcdcd7;
+}
+.app-sidebar ul li.app-sidebar-list{
+	border-right: 1px solid #c6c5c1;
+	border-bottom: 1px solid #c6c5c1;
+}
+.app-sidebar ul li a.app-sidebar-a{
+	display: block;
+	width: 203px;
+	height: 53px;
+	line-height: 53px;
+	font-size: 14px;
+	color: #656565;
+	background: #d2d2ce;
+	background: -webkit-linear-gradient(#d5d5d1, #d0d1cc); 
+    background: -o-linear-gradient(#d5d5d1, #d0d1cc); 
+    background: -moz-linear-gradient(#d5d5d1, #d0d1cc); 
+    background: linear-gradient(#d5d5d1, #d0d1cc); 
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#d5d5d1, endColorstr=#d0d1cc);/*IE<9>*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#d5d5d1, endColorstr=#d0d1cc)";/*IE8+*/
+}
+.app-sidebar ul li a.app-sidebar-a:hover{
+	background: #e3e3de;
+}
+.app-sidebar ul li a:hover{
+	text-decoration: none;
+}
+.app-sidebar ul li a.active{
+	background: #e3e3de;
+}
+/*大图标部分*/
+.app-sidebar .app-sidebar-icon{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(../images/sidebar-icon.png) no-repeat;
+	margin: 0 8px -10px 14px;
+}
+.app-sidebar .app-sidebar-icon2{
+	background-position: 0 -30px;
+}
+.app-sidebar .app-sidebar-icon3{
+	background-position: 0 -60px;
+}
+.app-sidebar .app-sidebar-icon4{
+	background-position: 0 -90px;
+}
+.app-sidebar .app-sidebar-icon5{
+	background-position: 0 -120px;
+}
+.app-sidebar .app-sidebar-icon6{
+	background-position: 0 -150px;
+}
+.app-sidebar .app-sidebar-icon7{
+	background-position: 0 -180px;
+}
+.app-sidebar .app-sidebar-icon8{
+	background-position: 0 -210px;
+}
+.app-sidebar .app-sidebar-icon9{
+	background-position: 0 -240px;
+}
+/*一级子菜单*/
+.app-sidebar .app-sidebar-submenu{
+	background: #e3e3de;
+	padding-bottom: 8px;
+	margin-top: -6px;
+}
+.app-sidebar .app-sidebar-submenu li{
+	width: 150px;
+}
+.app-sidebar .app-sidebar-submenu li:first-child{
+	border-top: 1px solid #dcdcdc;
+}
+.app-sidebar .app-sidebar-submenu li:last-child{
+	border-bottom: 1px solid #dcdcdc;
+}
+.app-sidebar .app-sidebar-submenu a{
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	color: #656565;
+	border-left: 4px solid #dcdcdc;
+	background: #fff;
+	padding-left: 8px;
+}
+.app-sidebar .app-sidebar-submenu a:hover{
+	color: #fff;
+	border-left: 4px solid #6a7587;
+	background: #96a3b3;
+}
+.app-sidebar .app-sidebar-submenu a.active{
+	color: #fff;
+	border-left: 4px solid #dbc454;
+	background: #96a3b3;
+}
+.app-sidebar .app-sidebar-submenu i{
+	position: absolute;
+}
+/*箭头图标*/
+.app-sidebar .app-sidebar-icon-arrow{
+	position: absolute;
+	top: 14px;
+	right: 10px;
+	width: 8px;
+	height: 10px;
+	background-position: -123px -63px;
+}
+/*plus图标*/
+.app-sidebar .app-sidebar-icon-plus{
+	position: absolute;
+	top: 12px;
+	right: 8px;
+	width: 14px;
+	height: 14px;
+	background-position: -56px -61px;
+}
+.app-sidebar .app-sidebar-submenu a.app-sidebar-plus:hover i.app-sidebar-icon-plus{
+	background-position: -77px -61px;
+}
+.app-sidebar .app-sidebar-submenu a.active .app-sidebar-icon-plus,.app-sidebar .app-sidebar-submenu a.active:hover i.app-sidebar-icon-plus{
+	background-position: -98px -61px;
+}
+/*二三级子菜单*/
+.app-sidebar .app-sidebar-submenu-2,.app-sidebar .app-sidebar-submenu-3{
+	position: absolute;
+	top: -1px;
+	left: 151px;
+	border-right: 1px solid #dcdcdc;
+	display: none;
+	z-index: 2;
+	box-shadow: 0 1px 6px rgba(0,0,0,.2);
+}
+.app-sidebar .app-sidebar-hover-1:hover .app-sidebar-submenu-2,.app-sidebar .app-sidebar-hover-2:hover .app-sidebar-submenu-3{
+	display: block;
+}

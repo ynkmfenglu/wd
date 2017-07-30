@@ -1,0 +1,64 @@
+/*统计部分样式*/
+.app-statistics .app-statistics-item{
+	margin-top: 12px;
+}
+.app-statistics .app-statistics-item h6{
+	height: 28px;
+	line-height: 28px;
+	color: #fff;
+	padding-left: 8px;
+    background: #676765;
+    background: -webkit-linear-gradient(#7e7e7b, #676765,#646668);
+    background: -o-linear-gradient(#7e7e7b, #676765,#646668);
+    background: -moz-linear-gradient(#7e7e7b, #676765,#646668);
+    background: linear-gradient(#7e7e7b, #676765,#646668);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#7b7b7a, endColorstr=#646667);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#7b7b7a, endColorstr=#646667)";
+}
+.app-statistics .app-statistics-margin,.app-statistics .app-statistics-margin-l,.app-statistics .app-statistics-margin-r{
+	min-height: 175px;
+	border: 1px solid #e1e1e1;
+	background: #fff;
+}
+.app-statistics .app-statistics-margin-l{
+	margin-right: 6px;
+}
+.app-statistics .app-statistics-margin-r{
+	margin-left: 6px;
+}
+.app-statistics .app-statistics-tr td{
+	background: #fff;
+	border: 1px solid #e1e1e1;
+	padding: 4px 8px;
+}
+.app-statistics .app-statistics-tr td:first-child{
+	background: #eee;
+	color: #7d7d7d;
+	border-left: none;
+}
+.app-statistics .app-statistics-tr td:last-child{
+	border-right: none;
+}
+.app-statistics .app-statistics-icon-box{
+	position: absolute;
+	top: 4px;
+	right: 4px;
+}
+.app-statistics .app-statistics-rule-wrap{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.app-statistics .app-statistics-rule-wrap li a{
+	width: 24px;
+	height: 24px;
+	background-position: -118px 0;
+	margin: 0 2px;
+}
+.app-statistics .app-statistics-rule-wrap li a:hover{
+	background-position: -89px 0;
+}

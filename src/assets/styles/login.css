@@ -1,0 +1,88 @@
+/*登录页样式*/
+.app-login{
+	width: 100%;
+	height: 100%;
+	min-height: 568px;
+	background: #c4c2be;
+}
+.app-login .app-login-panel{
+	position: absolute;
+	width: 802px;
+	height: 568px;
+	top: 50%;
+	left: 50%;
+	box-shadow: 0px -1px 3px rgba(0,0,0,.05);
+	margin-left: -401px;
+	margin-top: -284px;
+}
+.app-login .app-login-panel-title{
+	background: url(../images/login-heard-bg.png) repeat-x;
+	height: 92px;
+}
+.app-login .app-login-panel-title img{
+	padding: 23px 0 0 16px;
+}
+.app-login .app-login-main{
+	background: #eae9e5;
+}
+.app-login .app-login-form{
+	width: 272px;
+	margin: 16px 14px 24px 24px;
+}
+.app-login .app-login-input{
+	height: 42px !important;
+	border-radius: 2px;
+	border: 1px solid #fff !important;
+}
+.app-login .app-login-input:focus{
+	border-color: #99baca !important;
+}
+.app-login .app-login-label{
+	font-size: 14px;
+	line-height: 38px;
+	color: #656565;
+}
+.app-login .app-login-button{
+	height: 42px;
+	font-size: 14px;
+	border: 1px solid #bbb;
+	border-radius: 3px;
+	margin-top: 32px;
+	color: #333;
+}
+.app-login .app-login-explain{
+	width: 472px;
+	height: 422px;
+	margin: 10px;
+	padding: 30px;
+	line-height: 38px;
+	font-size: 14px;
+	color: #656565;
+	background: #fff;
+}
+.app-login .app-login-buttom-info{
+	margin-top: 14px;
+	font-size: 12px;
+	color: #656565;
+}
+.app-login .app-login-host-name p,.app-login .app-login-address p{
+	font-weight: bold;
+	font-size: 14px;
+	height: 24px;
+	line-height: 24px;
+	color: #666;
+	border-bottom: 1px solid #ddd;
+}
+.app-login .app-login-host-name span,.app-login .app-login-address span{
+	font-size: 14px;
+	height: 32px;
+	line-height: 32px;
+	color: #888;
+	letter-spacing: 0.5px;
+}
+.app-login .app-login-host-name{
+	padding: 10px 0 5px 0;
+}
+.app-login .app-login-address{
+	margin-bottom: 10px;
+}

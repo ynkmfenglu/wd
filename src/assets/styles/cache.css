@@ -1,0 +1,97 @@
+/*缓存部分样式*/
+.app-cache .app-cache-tree,.app-cache .app-cache-box{
+	min-height: 488px;
+	border: 1px solid #e1e1e1;
+	background: #fff;
+}
+.app-cache .app-cache-tree{
+	margin-right: 8px;
+}
+.app-cache .app-cache-box{
+	margin-left: 8px;
+}
+.app-cache .app-cache-box ul{
+	height: 32px;
+    line-height: 32px;
+    border: 1px solid #434343;
+    border-top: none;
+    background: #676765;
+    background: -webkit-linear-gradient(#7e7e7b, #676765,#646668);
+    background: -o-linear-gradient(#7e7e7b, #676765,#646668);
+    background: -moz-linear-gradient(#7e7e7b, #676765,#646668);
+    background: linear-gradient(#7e7e7b, #676765,#646668);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#7b7b7a, endColorstr=#646667);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#7b7b7a, endColorstr=#646667)";
+}
+.app-cache .app-cache-box ul li{
+	position: relative;
+	min-width: 54px;
+	padding: 0 18px;
+	color: #fff;
+	border-right: 1px solid #434343;
+}
+.app-cache .app-cache-box ul li:not(:first-child){
+	cursor: pointer;
+}
+.app-cache .app-cache-box ul li:hover:not(:first-child):after,.app-cache .app-cache-box ul li:not(:first-child).active:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 3px;
+    background: #dbc454;
+}
+.app-cache h5{
+	height: 32px;
+	line-height: 32px;
+	color: #666;
+}
+.app-cache .app-cache-tab-content{
+	padding: 20px;
+}
+.app-cache .app-cache-tr td{
+	background: #f9f9f9;
+	border: 1px solid #e1e1e1;
+	padding: 4px 8px;
+}
+.app-cache .app-cache-tr td:first-child{
+	text-align: center;
+	width: 60px;
+}
+/*select部分*/
+.app-cache .app-cache-select-wrap{
+	margin: 2px 6px 0 0;
+}
+.app-cache .app-cache-select div{
+	width: 104px;
+	height: 26px;
+	line-height: 26px;
+	min-height: 26px;
+	background: #fff;
+	border:1px solid #ddd;
+	border-radius: 5px;
+	margin-top: -1px;
+}
+.app-cache .app-cache-select span{
+	display: block;
+	width: 68px;
+	word-break:break-all;
+	overflow: hidden;
+	margin-top: -1px;
+}
+.app-cache .app-cache-select i{
+	position: absolute;
+	top: 9px;
+	right: 8px;
+	width: 8px;
+	height: 8px;
+	background-position: -158px -64px;
+}
+/*特殊处理部分*/
+.app-cache .app-cache-tr td.app-cache-td{
+	background: #eee;
+	color: #7d7d7d;
+	min-width: 126px;
+	text-align: left;
+}

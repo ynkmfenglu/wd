@@ -1,0 +1,15 @@
+/*面包屑样式*/
+.app-breadcrumb{
+	height: 28px;
+	border: 1px solid #434343;
+	background: #4e5d63;
+}
+.app-breadcrumb ul{
+	height: 28px;
+	line-height: 28px;
+	color: #fff;
+	padding-left: 10px;
+}
+.app-breadcrumb .app-breadcrumb-this a{
+	color: #dcc454;
+}

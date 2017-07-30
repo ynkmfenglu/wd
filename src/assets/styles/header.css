@@ -1,0 +1,164 @@
+/*头部上部分*/
+.app-header .app-header-t{
+	height: 40px;
+	padding: 7px 4px;
+	background: url(../images/heard-top-bg.png) repeat-x
+}
+.app-header .app-hearder-info-l{
+	height: 26px;
+	border-right: 1px dotted #404244;
+	padding: 0 12px;
+}
+.app-header .app-hearder-info-l span{
+	display: block;
+	color: #ebebeb;
+	margin-top: -5px;
+}
+.app-header .app-hearder-info-r{
+	padding: 2px 0;
+}
+.app-header .app-hearder-info-r label{
+	line-height: 26px;
+	color: #ebebeb;
+}
+/*头部选择表单部分*/
+.app-header .app-header-select{
+	width: 104px;
+	min-height: 0;
+	height: 22px;
+	line-height: 22px;
+	text-align: left;
+	margin-top: 3px;
+	padding: 0 8px;
+}
+.app-header .app-header-select span{
+	display: inline-block;
+	width: 76px;
+	overflow: hidden;
+}
+.app-header .app-header-select i{
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 8px;
+	height: 8px;
+	background-position: -158px -64px;
+}
+.app-header .app-header-select select{
+	padding: 0 8px;
+}
+/*头部选择表单右侧*/
+.app-header .app-hearder-info-r{
+	height: 26px;
+	border-left: 1px dotted #404244;
+	padding: 0 12px;
+}
+.app-header .app-hearder-a{
+	display: inline-block;
+	width: 74px;
+	height: 20px;
+	border: 1px solid #3f4436;
+	background: url(../images/heard-a.png) repeat-x;
+	margin-top: 3px;
+}
+/*头部logo部分*/
+.app-header .app-header-b{
+	height: 94px;
+	background: url(../images/heard-bg.png) repeat-x;
+}
+.app-header .app-header-logo{
+	padding: 24px 28px;
+}
+.app-header .app-header-logo img{
+	width: 213px;
+	height: 45px;
+}
+.app-header .app-header-logo-right{
+	color: #ebebeb;
+	padding: 27px 6px;
+}
+.app-header .app-header-logo-right p:before{
+	content: '';
+	width: 3px;
+	height: 16px;
+	background: #a0cb51;
+	position: absolute;
+	top: 2px;
+	left: -8px;
+}
+/*头部菜单栏部分*/
+.app-header .app-header-navbar .app-header-navbar-a{
+	display: inline-block;
+	width: 94px;
+	height: 94px;
+	color: #fff;
+	font-size: 14px;
+	padding: 22px 0;
+}
+.app-header .app-header-navbar .app-header-navbar-a:hover,.app-header .app-header-subnav a:hover{
+	background: rgba(255,255,255,.12);
+	text-decoration: none;
+}
+.app-header .app-header-navbar a.active{
+	background: rgba(255,255,255,.12);
+}
+.app-header .app-header-icon{
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin: 0 auto 3px;
+	background: url(../images/head-icon.png) no-repeat;
+}
+.app-header .app-header-icon2{
+	background-position: 0 -30px;
+}
+.app-header .app-header-icon3{
+	background-position: 0 -60px;
+}
+.app-header .app-header-icon4{
+	background-position: 0 -90px;
+}
+.app-header .app-header-icon5{
+	background-position: 0 -120px;
+}
+/*头部子菜单部分*/
+.app-header .app-header-subnav{
+	top: 94px;
+	left: 0;
+	width: 150px;
+	background: #758594;
+	z-index: 2;
+}
+.app-header .app-header-subnav a{
+	display: block;
+	height: 48px;
+	line-height: 48px;
+	font-size: 14px;
+	color: #fff;
+}
+.app-header .app-header-guide-icon{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(../images/sidebar-icon.png) no-repeat;
+	margin: 0 2px -12px 8px
+}
+.app-header .app-header-guide-icon1{
+	background-position: 0 -150px;
+}
+.app-header .app-header-guide-icon2{
+	background-position: 0 -60px;
+}
+.app-header .app-header-guide-icon3{
+	background-position: 0 -89px;
+}
+/*loading部分*/
+.app-header .app-header-loading{
+	position: absolute;
+	top: 32px;
+	left: 398px;
+}
+.app-header .app-header-loading span{
+	color: #fff;
+	padding-left: 2px;
+}

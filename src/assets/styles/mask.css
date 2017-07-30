@@ -1,0 +1,86 @@
+/*遮罩层样式*/
+.app-mask{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #131313;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+	z-index: 1;
+}
+/*向导部分*/
+.app-mask-lead-wrap{
+	position: absolute;
+	top:3px;
+	right: 297px;
+	background: url(../images/lead-bg.png) no-repeat;
+	width: 357px;
+	height: 277px;
+	z-index: 999;
+}
+.app-mask-lead-wrap .app-mask-lead{
+	position: absolute;
+	width: 104px;
+	height: 104px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 50%;
+	padding-top: 32px;
+}
+.app-mask-lead-wrap .app-mask-lead:hover{
+	background: url(../images/lead-hover.png) no-repeat;
+	text-decoration: none;
+}
+.app-mask-lead-wrap .app-mask-lead1{
+	top: 56px;
+	left: 0;
+}
+.app-mask-lead-wrap .app-mask-lead2{
+	top: 173px;
+	left: 92px;
+}
+.app-mask-lead-wrap .app-mask-lead2:hover{
+	background-position: 0 -104px;
+}
+.app-mask-lead-wrap .app-mask-lead3{
+	top: 173px;
+	right: 0;
+}
+.app-mask-lead-wrap .app-mask-lead3:hover{
+	background-position: 0 -208px;
+}
+.app-mask-lead-wrap .app-mask-lead4{
+	position: absolute;
+	top: 43px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	text-indent: -999px;
+	overflow: hidden;
+}
+.app-mask-lead-wrap .app-mask-lead4:hover{
+	background: url(../images/btn-close-hover.png) no-repeat;
+}
+/*弹出表单*/
+.app-mask-form{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	width: 580px;
+	height: 420px;
+	padding: 12px 0;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
